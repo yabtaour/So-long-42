@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabtaour <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/12 07:37:20 by yabtaour          #+#    #+#             */
-/*   Updated: 2022/02/12 08:01:02 by yabtaour         ###   ########.fr       */
+/*   Created: 2022/02/18 03:13:36 by yabtaour          #+#    #+#             */
+/*   Updated: 2022/02/18 03:13:39 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
 
-size_t	word_count(const char *s, char c)
+static size_t	word_count(const char *s, char c)
 {
 	int	i;
 	int	count;
@@ -32,7 +32,7 @@ size_t	word_count(const char *s, char c)
 	return (count);
 }
 
-char	**ft_free_tab(char	**str, int i)
+static char	**ft_free_tab(char	**str, int i)
 {
 	while (i >= 0)
 	{
@@ -43,7 +43,7 @@ char	**ft_free_tab(char	**str, int i)
 	return (str);
 }
 
-char	**ft_allocation(char const *s, char c)
+static char	**ft_allocation(char const *s, char c)
 {
 	char	**ptr;
 

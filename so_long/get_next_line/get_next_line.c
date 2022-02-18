@@ -5,11 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabtaour <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/12 07:19:46 by yabtaour          #+#    #+#             */
-/*   Updated: 2022/02/12 08:39:31 by yabtaour         ###   ########.fr       */
+/*   Created: 2021/12/07 11:22:05 by yabtaour          #+#    #+#             */
+/*   Updated: 2021/12/07 20:10:14 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "so_long.h"
+#include "get_next_line.h"
 
 char	*ft_read(int fd, char *str)
 {
@@ -41,7 +41,7 @@ char	*ft_get_line(char *str)
 	int		i;
 
 	i = 0;
-	if (!str || !str[0])
+	if (!str[0])
 		return (NULL);
 	while (str[i] != '\0' && str[i] != '\n')
 		i++;

@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabtaour <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/12 07:21:21 by yabtaour          #+#    #+#             */
-/*   Updated: 2022/02/12 11:14:19 by yabtaour         ###   ########.fr       */
+/*   Created: 2021/12/07 10:57:14 by yabtaour          #+#    #+#             */
+/*   Updated: 2021/12/07 15:57:13 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "so_long.h"
+#include "get_next_line.h"
 
-size_t	ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	size_t	i;
+	int	i;
 
 	if (!str)
 		return (0);
@@ -36,29 +36,29 @@ char	*ft_strchr(char *str, int c)
 	return ((char *)str);
 }
 
-char    *ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
-    size_t  i;
-    size_t  j;
-    char    *str;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
-    if (!s1)
-    {
-        s1 = (char *)malloc(1 * sizeof(char));
-        s1[0] = '\0';
-    }
-    if (!s2)
-        return (NULL);
-    str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-    if (!str)
-        return (NULL);
-    i = -1;
-    j = 0;
-    while (s1[++i])
-        str[i] = s1[i];
-    while (s2[j])
-        str[i++] = s2[j++];
-    str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
-    free(s1);
-    return (str);
+	if (!s1)
+	{
+		s1 = (char *)malloc(1 * sizeof(char));
+		s1[0] = '\0';
+	}
+	if (!s2)
+		return (NULL);
+	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!str)
+		return (NULL);
+	i = -1;
+	j = 0;
+	while (s1[++i])
+		str[i] = s1[i];
+	while (s2[j])
+		str[i++] = s2[j++];
+	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	free(s1);
+	return (str);
 }
