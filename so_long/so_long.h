@@ -45,5 +45,6 @@ void    ft_wrong_len();
 void    ft_wall_error();
 void    ft_empty_line();
 void    ft_check_empty_line(t_info info);
+void    ft_empty_file();
 
 #endif

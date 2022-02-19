@@ -108,8 +108,6 @@ t_map   ft_check_map(t_info info)
 {
     info.map_info = ft_check_content(info.map);
     info.map_info = ft_check_len(info);
-    /*printf("%d\n", info.map_info.line_length);
-    printf("%d", info.map_info.line_count);*/
     ft_check_walls(info);
     return (info.map_info);
 }
