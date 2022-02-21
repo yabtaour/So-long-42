@@ -20,6 +20,6 @@ int check_name(char *str)
     i = ft_strlen(str);
     if (str[i - 1] != 'r' || str[i - 2] != 'e'
     || str[i - 3] != 'b' || str[i - 4] != '.')
-        return (0);
+        return(0);
     return (1);
 }

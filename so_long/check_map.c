@@ -39,75 +39,67 @@ t_map   ft_check_content(char *map)
     return (map_info);
 }
 
-t_map   ft_check_len(t_info info)
+t_info   ft_check_len(t_info info)
 {
     int len2;
-    char **result;
     int i = 0;
     info.map_info.line_count = 0;
 
-    result = ft_split(info.map, '\n');
-    while(result[info.map_info.line_count])
+    info.result = ft_split(info.map, '\n');
+    i = 0;
+    while(info.result[info.map_info.line_count])
     {
         if (info.map_info.line_count  == 0)
-             info.map_info.line_length = ft_strlen(result[info.map_info.line_count]);
-        len2 = ft_strlen(result[info.map_info.line_count]);
+             info.map_info.line_length = ft_strlen(info.result[info.map_info.line_count]);
+        len2 = ft_strlen(info.result[info.map_info.line_count]);
         if (info.map_info.line_length != len2)
             ft_wrong_len();
         info.map_info.line_count ++;        
     }
-    while (i < info.map_info.line_count)
-        free(result[i++]);
-    free(result);
-    return (info.map_info);
+    return (info);
 }
 
 void    ft_check_walls(t_info info)
 {
     int i;
     int j;
-    char **result;
-    int k = 0;
+ 
     i = 0;
-    result = ft_split(info.map, '\n');
-    while (result[i])
+    //info.result = ft_split(info.map, '\n');
+    while (info.result[i])
     {
         j = 0;
         if (i == 0)
         {
             while(j < info.map_info.line_length)
             {
-                if (result[i][j] != '1')
+                if (info.result[i][j] != '1')
                     ft_wall_error();
                 j++;
             }
         }
         if (i > 0 && i < info.map_info.line_count)
-            if (result[i][j] != '1' || result[i][info.map_info.line_length - 1] != '1')
+            if (info.result[i][j] != '1' || info.result[i][info.map_info.line_length - 1] != '1')
                 ft_wall_error();
         if (i == info.map_info.line_count - 1)
         {
             while(j < info.map_info.line_length)
             {
-                if (result[i][j] != '1')
+                if (info.result[i][j] != '1')
                     ft_wall_error();
                 j++;
             }
         }
         i++;
     }
-    while (k < i)
-    {
-        free(result[k]);
-        k++;
-    }
-    free(result);
+ 
 }
 
-t_map   ft_check_map(t_info info)
+t_info   ft_check_map(t_info info)
 {
     info.map_info = ft_check_content(info.map);
-    info.map_info = ft_check_len(info);
+    //ft_check_items(info.map);
+    info = ft_check_len(info);
     ft_check_walls(info);
-    return (info.map_info);
+    return (info);
 }

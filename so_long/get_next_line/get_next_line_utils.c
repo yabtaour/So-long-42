@@ -6,22 +6,10 @@
 /*   By: yabtaour <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 10:57:14 by yabtaour          #+#    #+#             */
-/*   Updated: 2021/12/07 15:57:13 by yabtaour         ###   ########.fr       */
+/*   Updated: 2022/02/20 09:11:17 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
 
 char	*ft_strchr(char *str, int c)
 {

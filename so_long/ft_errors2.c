@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_errors2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabtaour <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 11:16:10 by yabtaour          #+#    #+#             */
-/*   Updated: 2022/02/20 09:18:04 by yabtaour         ###   ########.fr       */
+/*   Created: 2022/02/20 12:35:27 by yabtaour          #+#    #+#             */
+/*   Updated: 2022/02/20 12:35:29 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "so_long.h"
 
-# include <stdlib.h>
-# include <fcntl.h>
-# include <unistd.h>
-# include "../so_long.h"
+void ft_empty_file()
+{
+    printf("%s", "You entered an empty map");
+    exit(0);
+}
 
-#define BUFFER_SIZE 1
-
-char	*ft_strchr(char *str, int c);
-char	*ft_strjoin(char *s1, char *s2);
-char	*get_next_line(int fd);
-
-#endif
+void    ft_no_map()
+{
+    printf("No map found");
+    exit(0);
+}

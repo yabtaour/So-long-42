@@ -13,30 +13,24 @@
 
 void    ft_imposter()
 {
-    printf("%s", "There's an imposter among us");
+    printf("%s", "There's an emposter among ur map");
     exit(0);
 }
 
 void    ft_fix_your_map()
 {
-    printf("%s\n", "Fix your map kid");
+    printf("%s\n", "Map is wrong");
     exit(0);
 }
 
 void    ft_wrong_len()
 {
-    printf("%s", "Fix your lines length kid");
+    printf("%s", "Lines have different lengths");
     exit(0);
 }
 
 void    ft_wall_error()
 {
-    printf("%s", "Fix your walls kid");
-    exit(0);
-}
-
-void    ft_empty_line()
-{
-    printf("%s", "You have an empty line there kid");
+    printf("%s", "Fix your walls");
     exit(0);
 }
