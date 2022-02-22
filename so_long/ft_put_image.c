@@ -27,6 +27,10 @@ void    ft_put_image(t_window window, t_info info)
                 mlx_put_image_to_window (window.mlx_pointer, window.window_pointer, window.player, j*50, i*50);
             if (info.result[i][j] == 'C')
                 mlx_put_image_to_window (window.mlx_pointer, window.window_pointer, window.collectible, j*50, i*50);
+            if (info.result[i][j] == 'E')
+                mlx_put_image_to_window (window.mlx_pointer, window.window_pointer, window.door, j*50, i*50);
+            if (info.result[i][j] == '0')
+                mlx_put_image_to_window (window.mlx_pointer, window.window_pointer, window.back, j*50, i*50);
             j++;
         }
         i++;

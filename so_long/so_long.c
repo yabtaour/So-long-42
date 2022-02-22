@@ -40,15 +40,16 @@ int	main(int argc, char *argv[])
 	//printf("%s", info.map);
 	ft_check_empty_line(info);
 	info = ft_check_map(info);
-	int i = 0;
 	window.mlx_pointer = mlx_init();
 	//printf("%d\n%d\n", info.map_info.line_length, info.map_info.line_count);
 	window.window_pointer = mlx_new_window(window.mlx_pointer, 50*info.map_info.line_length, 50*info.map_info.line_count, "appah");
-	window.wall = mlx_xpm_file_to_image (window.mlx_pointer, "wall.xpm", &window.x, &window.y );
+	window.wall = mlx_xpm_file_to_image (window.mlx_pointer, "wall.xpm", &window.x, &window.y);
 	window.collectible = mlx_xpm_file_to_image (window.mlx_pointer, "collectible.xpm", &window.x, &window.y );
-	window.player = mlx_xpm_file_to_image (window.mlx_pointer, "down.xpm", &window.x, &window.y );
+	window.player = mlx_xpm_file_to_image (window.mlx_pointer, "player.xpm", &window.x, &window.y );
+	window.back = mlx_xpm_file_to_image (window.mlx_pointer, "back.xpm", &window.x, &window.y );
+	window.door = mlx_xpm_file_to_image (window.mlx_pointer, "door.xpm", &window.x, &window.y );
 	ft_put_image(window, info);
-	//mlx_hook(mlx_pointer)
+	mlx_key_hook(window.window_pointer, ft_move, &window);
 	mlx_loop(window.mlx_pointer);
 	return (0);
 }
