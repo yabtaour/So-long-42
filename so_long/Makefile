@@ -1,5 +1,5 @@
 NAME = so_long
-CC	= cc -Wall -Wextra
+CC	= cc -Wall -Wextra -g
 MLX = -lmlx -framework OpenGL -framework AppKit
 SRS = *.c 
 GNL = ./get_next_line/*.c

@@ -33,8 +33,6 @@ typedef struct s_info{
     char    *map;
     t_map   map_info;
     char    **result;
-    int i;
-    int j;
 } t_info;
 
 typedef struct s_window{
@@ -48,6 +46,8 @@ typedef struct s_window{
     t_info info;
     int x;
     int y;
+    int i;
+    int j;
 } t_window;
 
 int     check_name(char *str);
@@ -62,7 +62,10 @@ void    ft_check_empty_line(t_info info);
 void    ft_empty_file();
 void    ft_no_map();
 void    ft_put_image(t_window window, t_info info);
-int     ft_move(int keycode, t_window window);
-void    ft_move_up(t_window window, t_info info);
+int     ft_move(int keycode, t_window *window);
+void    ft_move_up(t_window *window);
+void    ft_move_down(t_window *window);
+void    ft_move_right(t_window *window);
+void    ft_move_left(t_window *window);
 
 #endif
