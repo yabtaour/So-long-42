@@ -6,20 +6,20 @@
 /*   By: yabtaour <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 02:20:48 by yabtaour          #+#    #+#             */
-/*   Updated: 2022/02/18 02:20:50 by yabtaour         ###   ########.fr       */
+/*   Updated: 2022/02/24 17:18:06 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
 
-int check_name(char *str)
+int	check_name(char *str)
 {
-    int i;
+	int	i;
 
-    if (!str)
-        return (0); 
-    i = ft_strlen(str);
-    if (str[i - 1] != 'r' || str[i - 2] != 'e'
-    || str[i - 3] != 'b' || str[i - 4] != '.')
-        return(0);
-    return (1);
+	if (!str)
+		return (0);
+	i = ft_strlen(str);
+	if (str[i - 1] != 'r' || str[i - 2] != 'e'
+		|| str[i - 3] != 'b' || str[i - 4] != '.')
+		return (0);
+	return (1);
 }

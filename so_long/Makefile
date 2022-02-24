@@ -10,7 +10,7 @@ build:
 	$(CC)  $(SRS) $(GNL) $(LIBFT)  $(MLX) -o $(NAME)
 	./so_long map1.ber
 clean:
-	rm *.o ./get_next_line/*.o
+	rm *.o ./get_next_line/*.o ./libft/*.o
 fclean: clean
 	rm ${NAME}
 

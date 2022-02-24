@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include "../so_long.h"
 
-#define BUFFER_SIZE 1
+# define BUFFER_SIZE 1
 
 char	*ft_strchr(char *str, int c);
 char	*ft_strjoin(char *s1, char *s2);

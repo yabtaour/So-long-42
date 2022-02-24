@@ -97,6 +97,7 @@ void    ft_check_walls(t_info info)
 
 t_info   ft_check_map(t_info info)
 {
+    ft_check_empty_line(info);
     info.map_info = ft_check_content(info.map);
     //ft_check_items(info.map);
     info = ft_check_len(info);

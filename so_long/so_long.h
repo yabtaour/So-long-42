@@ -51,7 +51,7 @@ typedef struct s_window{
 } t_window;
 
 int     check_name(char *str);
-t_info    ft_check_map(t_info info);
+t_info  ft_check_map(t_info info);
 void    ft_fix_your_map();
 void    ft_imposter();
 t_info  ft_check_len(t_info info);
@@ -67,5 +67,6 @@ void    ft_move_up(t_window *window);
 void    ft_move_down(t_window *window);
 void    ft_move_right(t_window *window);
 void    ft_move_left(t_window *window);
+int     ft_window(t_window window);
 
 #endif
