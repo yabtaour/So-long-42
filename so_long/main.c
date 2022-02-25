@@ -13,27 +13,26 @@
 
 int	main(int argc, char *argv[])
 {
-	char		*str;
-	t_window	window;
+	char	*str;
+	t_w		w;
 
-	window.info.map = NULL;
+	w.info.map = NULL;
 	if (argc != 2 || !check_name(argv[1]))
 		ft_no_map();
-	window.info.fd = open(argv[1], O_RDONLY);
-	str = get_next_line(window.info.fd);
+	w.info.fd = open(argv[1], O_RDONLY);
+	str = get_next_line(w.info.fd);
 	if (!str)
 	{
 		ft_empty_file();
 		free(str);
 	}
-	window.info.map = ft_strjoin(window.info.map, str);
 	while (str)
 	{
-		window.info.map = ft_strjoin(window.info.map, str);
+		w.info.map = ft_strjoin(w.info.map, str);
 		free(str);
-		str = get_next_line(window.info.fd);
+		str = get_next_line(w.info.fd);
 	}
-	window.info = ft_check_map(window.info);
-	ft_window(window);
+	w.info = ft_check_map(w.info);
+	ft_window(w);
 	return (0);
 }

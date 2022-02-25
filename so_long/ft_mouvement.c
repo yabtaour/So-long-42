@@ -6,119 +6,143 @@
 /*   By: yabtaour <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 09:41:06 by yabtaour          #+#    #+#             */
-/*   Updated: 2022/02/22 09:41:15 by yabtaour         ###   ########.fr       */
+/*   Updated: 2022/02/25 20:02:09 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
 
-t_window *ft_find_player(t_window *window)
+t_w	*ft_find_player(t_w *w)
 {
-    int i = 0;
-    int j;
-    //printf ("%s\n", window->info.result[0]);
-    while (window->info.result[i])
-    {
-        //printf("%s\n", info.result[i]);
-        j = 0;    
-        while (window->info.result[i][j])
-        {
-            //printf("%d\n", j);
-            if (window->info.result[i][j] == 'P')
-            {        
-                window->i = i;
-                window->j = j;
-                return (window);
-            }
-            j++;
-        }
-        i++;
-    }
-    return (window);
+	int	i;
+	int	j;
+
+	i = 0;
+	while (w->info.result[i])
+	{
+		j = 0;
+		while (w->info.result[i][j])
+		{
+			if (w->info.result[i][j] == 'P')
+			{
+				w->i = i;
+				w->j = j;
+				return (w);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (w);
 }
 
-void ft_move_up(t_window *window)
+void	ft_move_up(t_w *w)
 {
-    window = ft_find_player(window);
-    if (window->info.result[window->i - 1][window->j] != '1' || (window->info.result[window->i - 1][window->j] == 'E' && window->info.map_info.c_num <= 0))
-    {
-        if (window->info.result[window->i - 1][window->j] == 'E' && window->info.map_info.c_num == 0)
-            exit(0);
-        //if (window->info.result[window->i - 1][window->j] == 'E' && window->info.map_info.c_num != 0)
-        
-        if ((window->info.result[window->i - 1][window->j]) == 'C' || (window->info.result[window->i - 1][window->j]) == '0')
-        {
-            if((window->info.result[window->i - 1][window->j]) == 'C')
-                window->info.map_info.c_num--;
-            window->info.result[window->i][window->j] = '0';
-            window->info.result[window->i - 1][window->j] = 'P';
-            mlx_put_image_to_window (window->mlx_pointer, window->window_pointer, window->back,  window->j*50, window->i*50);
-            mlx_put_image_to_window (window->mlx_pointer, window->window_pointer, window->player,  window->j*50, ((window->i)-1)*50);
-        }
-    }
+	int	a;
+	int	b;
+
+	w = ft_find_player(w);
+	if (w->info.result[w->i - 1][w->j] != '1'
+		|| (w->info.result[w->i - 1][w->j] == 'E'
+		&& w->info.map_info.c_num <= 0))
+	{
+		if (w->info.result[w->i - 1][w->j] == 'E'
+			&& w->info.map_info.c_num == 0)
+			exit(0);
+		if ((w->info.result[w->i - 1][w->j]) == 'C'
+			|| (w->info.result[w->i - 1][w->j]) == '0')
+		{
+			if ((w->info.result[w->i - 1][w->j]) == 'C')
+				w->info.map_info.c_num--;
+			w->info.result[w->i][w->j] = '0';
+			w->info.result[w->i - 1][w->j] = 'P';
+			a = w->j * 50;
+			b = ((w->i) - 1) * 50;
+			mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->b, a, w->i * 50);
+			mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->p, a, b);
+		}
+	}
 }
 
-void ft_move_down(t_window *window)
+void	ft_move_down(t_w *w)
 {
-    window = ft_find_player(window);
-    if (window->info.result[window->i + 1][window->j] != '1' || (window->info.result[window->i + 1][window->j] == 'E' && window->info.map_info.c_num <= 0))
-    {
-        if (window->info.result[window->i + 1][window->j] == 'E' && window->info.map_info.c_num == 0)
-            exit(0);
-        //if (window->info.result[window->i + 1][window->j] == 'E' && window->info.map_info.c_num != 0)
-        
-        if ((window->info.result[window->i + 1][window->j]) == 'C' || (window->info.result[window->i + 1][window->j]) == '0')
-        {
-            //if (window->info.result[window->i + 1][window->j] == 'C')
-            if ((window->info.result[window->i + 1][window->j]) == 'C')
-                window->info.map_info.c_num--;
-            window->info.result[window->i][window->j] = '0';
-            window->info.result[window->i + 1][window->j] = 'P';
-            mlx_put_image_to_window (window->mlx_pointer, window->window_pointer, window->back,  window->j*50, window->i*50);
-            mlx_put_image_to_window (window->mlx_pointer, window->window_pointer, window->player,  window->j*50, ((window->i)+1)*50);
-        }
-    }
+	int	a;
+	int	b;
+
+	w = ft_find_player(w);
+	if (w->info.result[w->i + 1][w->j] != '1'
+		|| (w->info.result[w->i + 1][w->j] == 'E'
+		&& w->info.map_info.c_num <= 0))
+	{
+		if (w->info.result[w->i + 1][w->j] == 'E'
+			&& w->info.map_info.c_num == 0)
+			exit(0);
+		if ((w->info.result[w->i + 1][w->j]) == 'C'
+			|| (w->info.result[w->i + 1][w->j]) == '0')
+		{
+			if ((w->info.result[w->i + 1][w->j]) == 'C')
+				w->info.map_info.c_num--;
+			w->info.result[w->i][w->j] = '0';
+			w->info.result[w->i + 1][w->j] = 'P';
+			a = w->j * 50;
+			b = ((w->i) + 1) * 50;
+			mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->b, a, w->i * 50);
+			mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->p, a, b);
+		}
+	}
 }
 
-void ft_move_right(t_window *window)
+void	ft_move_right(t_w *w)
 {
-    window = ft_find_player(window);
-    if (window->info.result[window->i][window->j + 1] != '1' || (window->info.result[window->i][window->j + 1] == 'E' && window->info.map_info.c_num <= 0))
-    {
-        if (window->info.result[window->i][window->j + 1] == 'E' && window->info.map_info.c_num == 0)
-            exit(0);
-        //if (window->info.result[window->i][window->j + 1] == 'E' && window->info.map_info.c_num != 0)
-        
-        if ((window->info.result[window->i][window->j + 1]) == 'C' || (window->info.result[window->i][window->j + 1]) == '0')
-        {
-            if ((window->info.result[window->i][window->j + 1]) == 'C')
-                window->info.map_info.c_num--;
-            window->info.result[window->i][window->j] = '0';
-            window->info.result[window->i][window->j + 1] = 'P';
-            mlx_put_image_to_window (window->mlx_pointer, window->window_pointer, window->back,  window->j*50, window->i*50);
-            mlx_put_image_to_window (window->mlx_pointer, window->window_pointer, window->player,  (window->j + 1)*50, (window->i)*50);
-        }
-    }
+	int	a;
+	int	b;
+
+	w = ft_find_player(w);
+	if (w->info.result[w->i][w->j + 1] != '1'
+		|| (w->info.result[w->i][w->j + 1] == 'E'
+		&& w->info.map_info.c_num <= 0))
+	{
+		if (w->info.result[w->i][w->j + 1] == 'E'
+			&& w->info.map_info.c_num == 0)
+			exit(0);
+		if ((w->info.result[w->i][w->j + 1]) == 'C'
+			|| (w->info.result[w->i][w->j + 1]) == '0')
+		{
+			if ((w->info.result[w->i][w->j + 1]) == 'C')
+				w->info.map_info.c_num--;
+			w->info.result[w->i][w->j] = '0';
+			w->info.result[w->i][w->j + 1] = 'P';
+			a = w->i * 50;
+			b = (w->j + 1) * 50;
+			mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->b, w->j * 50, a);
+			mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->p, b, a);
+		}
+	}
 }
 
-void ft_move_left(t_window *window)
+void	ft_move_left(t_w *w)
 {
-    window = ft_find_player(window);
-    if (window->info.result[window->i][window->j - 1] != '1' || (window->info.result[window->i][window->j - 1] == 'E' && window->info.map_info.c_num <= 0))
-    {
-        if (window->info.result[window->i][window->j - 1] == 'E' && window->info.map_info.c_num == 0)
-            exit(0);
-        //if (window->info.result[window->i][window->j - 1] == 'E' && window->info.map_info.c_num != 0)
-            
-        if ((window->info.result[window->i][window->j - 1]) == 'C' || window->info.result[window->i][window->j - 1] == '0')
-        {
-            
-            if (window->info.result[window->i][window->j - 1] == 'C')
-                window->info.map_info.c_num--;
-            printf("%d\n", window->info.map_info.c_num);
-            window->info.result[window->i][window->j] = '0';
-            window->info.result[window->i][window->j - 1] = 'P';
-            mlx_put_image_to_window (window->mlx_pointer, window->window_pointer, window->back,  window->j*50, window->i*50);
-            mlx_put_image_to_window (window->mlx_pointer, window->window_pointer, window->player,  (window->j - 1)*50, (window->i)*50);
-        }
-    }
+	int	a;
+	int	b;
+
+	w = ft_find_player(w);
+	if (w->info.result[w->i][w->j - 1] != '1'
+		|| (w->info.result[w->i][w->j - 1] == 'E'
+		&& w->info.map_info.c_num <= 0))
+	{
+		if (w->info.result[w->i][w->j - 1] == 'E'
+			&& w->info.map_info.c_num == 0)
+			exit(0);
+		if ((w->info.result[w->i][w->j - 1]) == 'C'
+			|| w->info.result[w->i][w->j - 1] == '0')
+		{
+			if (w->info.result[w->i][w->j - 1] == 'C')
+				w->info.map_info.c_num--;
+			w->info.result[w->i][w->j] = '0';
+			w->info.result[w->i][w->j - 1] = 'P';
+			a = w->i * 50;
+			(w->j - 1) * 50;
+			mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->b, w->j * 50, a);
+			mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->p, b, a);
+		}
+	}
 }
