@@ -28,6 +28,7 @@ int	ft_window(t_w w)
 	w.d = mlx_xpm_file_to_image(w.mlx_p, "d.xpm", &w.x, &w.y);
 	ft_put_image(w);
 	mlx_hook(w.mlx_w, 2, 0, ft_move, &w);
+	mlx_hook (w.mlx_w, 17, 0, ft_close, &w);
 	mlx_loop(w.mlx_p);
 	return (0);
 }

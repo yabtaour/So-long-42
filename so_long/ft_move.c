@@ -21,5 +21,7 @@ int	ft_move(int keycode, t_w *w)
 		ft_move_down(w);
 	if (keycode == 0)
 		ft_move_left(w);
+	if (keycode == 53)
+		ft_close(w);
 	return (0);
 }

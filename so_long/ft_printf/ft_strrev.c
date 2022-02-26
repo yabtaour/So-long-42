@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_errors2.c                                       :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabtaour <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/20 12:35:27 by yabtaour          #+#    #+#             */
-/*   Updated: 2022/02/24 18:19:56 by yabtaour         ###   ########.fr       */
+/*   Created: 2021/11/19 13:54:59 by yabtaour          #+#    #+#             */
+/*   Updated: 2021/11/25 14:45:44 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "so_long.h"
+#include "ft_printf.h"
 
-void	ft_empty_file(void)
+char	*ft_strrev(char	*s)
 {
-	ft_printf("%s", "You entered an empty map");
-	exit(0);
-}
+	int		len;
+	int		i;
+	char	tmp;
 
-void	ft_no_map(void)
-{
-	ft_printf("No map found");
-	exit(0);
+	i = 0;
+	len = ft_strlen(s);
+	while (i < len)
+	{
+		tmp = s[i];
+		s[i] = s[len - 1];
+		s[len -1] = tmp;
+		i++;
+		len--;
+	}
+	return (s);
 }

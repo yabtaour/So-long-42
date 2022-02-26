@@ -11,26 +11,46 @@
 /* ************************************************************************** */
 #include "so_long.h"
 
-void	ft_imposter(void)
+void	ft_imposter(char *map)
 {
-	printf("%s", "There's an emposter among ur map");
+	free(map);
+	ft_printf("%s", "There's an emposter among ur map");
 	exit(0);
 }
 
-void	ft_fix_your_map(void)
+void	ft_fix_your_map(char *map)
 {
-	printf("%s\n", "Map is wrong");
+	free(map);
+	ft_printf("%s\n", "Map is wrong");
 	exit(0);
 }
 
-void	ft_wrong_len(void)
+void	ft_wrong_len(t_info info)
 {
-	printf("%s", "Lines have different lengths");
+	int	i;
+
+	i = 0;
+	while (info.result[i])
+	{
+		free(info.result[i]);
+		i++;
+	}
+	free(info.result);
+	free(info.map);
+	ft_printf("%s", "Lines have different lengths");
 	exit(0);
 }
 
-void	ft_wall_error(void)
+void	ft_wall_error(t_info info)
 {
-	printf("%s", "Fix your walls");
+	int	i;
+
+	i = 0;
+	while (info.result[i])
+	{
+		free(info.result[i]);
+		i++;
+	}
+	ft_printf("%s", "Fix your walls");
 	exit(0);
 }

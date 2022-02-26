@@ -25,7 +25,7 @@ t_map	ft_check_content(char *map)
 		if (map[i] != '1' && map[i] != '0'
 			&& map[i] != '\n' && map[i] != 'P'
 			&& map[i] != 'C' && map[i] != 'E')
-			ft_imposter();
+			ft_imposter(map);
 		if (map[i] == 'P')
 			map_info.p_num++;
 		if (map[i] == 'C')
@@ -35,7 +35,7 @@ t_map	ft_check_content(char *map)
 		i++;
 	}
 	if (map_info.p_num != 1 || map_info.e_num < 1 || map_info.c_num < 1)
-		ft_fix_your_map();
+		ft_fix_your_map(map);
 	return (map_info);
 }
 
@@ -55,7 +55,12 @@ t_info	ft_check_len(t_info info)
 			i = ft_strlen(info.result[k]);
 		len2 = ft_strlen(info.result[k]);
 		if (i != len2)
-			ft_wrong_len();
+		{
+			i = -1;
+			while (info.result[++i])
+				free(info.result[i]);
+			ft_wrong_len(info);
+		}
 		k++;
 	}
 	info.map_info.line_count = k;
@@ -77,14 +82,14 @@ void	ft_check_walls(t_info info)
 			while (j < info.map_info.line_length)
 			{
 				if (info.result[i][j] != '1')
-					ft_wall_error();
+					ft_wall_error(info);
 				j++;
 			}
 		}
 		if (i > 0 && i < info.map_info.line_count)
 			if (info.result[i][j] != '1'
 				|| info.result[i][info.map_info.line_length - 1] != '1')
-				ft_wall_error();
+				ft_wall_error(info);
 		i++;
 	}
 }
@@ -99,7 +104,7 @@ void	ft_check_last(t_info info)
 	while (j < info.map_info.line_length)
 	{
 		if (info.result[i][j] != '1')
-			ft_wall_error();
+			ft_wall_error(info);
 		j++;
 	}
 }

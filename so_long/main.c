@@ -22,10 +22,7 @@ int	main(int argc, char *argv[])
 	w.info.fd = open(argv[1], O_RDONLY);
 	str = get_next_line(w.info.fd);
 	if (!str)
-	{
 		ft_empty_file();
-		free(str);
-	}
 	while (str)
 	{
 		w.info.map = ft_strjoin(w.info.map, str);

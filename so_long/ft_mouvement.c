@@ -37,9 +37,6 @@ t_w	*ft_find_player(t_w *w)
 
 void	ft_move_up(t_w *w)
 {
-	int	a;
-	int	b;
-
 	w = ft_find_player(w);
 	if (w->info.result[w->i - 1][w->j] != '1'
 		|| (w->info.result[w->i - 1][w->j] == 'E'
@@ -55,19 +52,15 @@ void	ft_move_up(t_w *w)
 				w->info.map_info.c_num--;
 			w->info.result[w->i][w->j] = '0';
 			w->info.result[w->i - 1][w->j] = 'P';
-			a = w->j * 50;
-			b = ((w->i) - 1) * 50;
-			mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->b, a, w->i * 50);
-			mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->p, a, b);
+			w->m++;
+			ft_printf ("Number of moves is : %d \n", w->m);
+			ft_change_position_u_d(((w->i) - 1) * 50, w->j * 50, w);
 		}
 	}
 }
 
 void	ft_move_down(t_w *w)
 {
-	int	a;
-	int	b;
-
 	w = ft_find_player(w);
 	if (w->info.result[w->i + 1][w->j] != '1'
 		|| (w->info.result[w->i + 1][w->j] == 'E'
@@ -83,19 +76,15 @@ void	ft_move_down(t_w *w)
 				w->info.map_info.c_num--;
 			w->info.result[w->i][w->j] = '0';
 			w->info.result[w->i + 1][w->j] = 'P';
-			a = w->j * 50;
-			b = ((w->i) + 1) * 50;
-			mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->b, a, w->i * 50);
-			mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->p, a, b);
+			w->m++;
+			ft_printf ("Number of moves is : %d \n", w->m);
+			ft_change_position_u_d(((w->i) + 1) * 50, w->j * 50, w);
 		}
 	}
 }
 
 void	ft_move_right(t_w *w)
 {
-	int	a;
-	int	b;
-
 	w = ft_find_player(w);
 	if (w->info.result[w->i][w->j + 1] != '1'
 		|| (w->info.result[w->i][w->j + 1] == 'E'
@@ -111,19 +100,15 @@ void	ft_move_right(t_w *w)
 				w->info.map_info.c_num--;
 			w->info.result[w->i][w->j] = '0';
 			w->info.result[w->i][w->j + 1] = 'P';
-			a = w->i * 50;
-			b = (w->j + 1) * 50;
-			mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->b, w->j * 50, a);
-			mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->p, b, a);
+			w->m++;
+			ft_printf ("Number of moves is : %d \n", w->m);
+			ft_change_position_r_l(w->i * 50, (w->j + 1) * 50, w);
 		}
 	}
 }
 
 void	ft_move_left(t_w *w)
 {
-	int	a;
-	int	b;
-
 	w = ft_find_player(w);
 	if (w->info.result[w->i][w->j - 1] != '1'
 		|| (w->info.result[w->i][w->j - 1] == 'E'
@@ -139,10 +124,9 @@ void	ft_move_left(t_w *w)
 				w->info.map_info.c_num--;
 			w->info.result[w->i][w->j] = '0';
 			w->info.result[w->i][w->j - 1] = 'P';
-			a = w->i * 50;
-			(w->j - 1) * 50;
-			mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->b, w->j * 50, a);
-			mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->p, b, a);
+			w->m++;
+			ft_printf ("Number of moves is : %d \n", w->m);
+			ft_change_position_r_l(w->i * 50, (w->j - 1) * 50, w);
 		}
 	}
 }

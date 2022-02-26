@@ -37,3 +37,15 @@ void	ft_put_image(t_w w)
 		i++;
 	}
 }
+
+void	ft_change_position_r_l(int i, int j, t_w *w)
+{
+	mlx_put_image_to_window(w->mlx_p, w->mlx_w, w->b, w->j * 50, i);
+	mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->p, j, i);
+}
+
+void	ft_change_position_u_d(int i, int j, t_w *w)
+{
+	mlx_put_image_to_window(w->mlx_p, w->mlx_w, w->b, j, w->i * 50);
+	mlx_put_image_to_window (w->mlx_p, w->mlx_w, w->p, j, i);
+}

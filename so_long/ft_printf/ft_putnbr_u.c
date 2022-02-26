@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_errors2.c                                       :+:      :+:    :+:   */
+/*   ft_punbre_u.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabtaour <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/20 12:35:27 by yabtaour          #+#    #+#             */
-/*   Updated: 2022/02/24 18:19:56 by yabtaour         ###   ########.fr       */
+/*   Created: 2021/11/20 15:39:21 by yabtaour          #+#    #+#             */
+/*   Updated: 2021/11/25 14:45:06 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "so_long.h"
+#include "ft_printf.h"
 
-void	ft_empty_file(void)
+int	ft_putnbr_u(unsigned int number)
 {
-	ft_printf("%s", "You entered an empty map");
-	exit(0);
-}
+	int	len;
 
-void	ft_no_map(void)
-{
-	ft_printf("No map found");
-	exit(0);
+	len = 0;
+	if (number <= 9 && number >= 0)
+		len += ft_putchar(number + 48);
+	else if (number > 9)
+	{
+		len += ft_putnbr_u(number / 10);
+		len += ft_putnbr_u(number % 10);
+	}
+	return (len);
 }
