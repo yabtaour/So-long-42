@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabtaour <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 18:07:00 by yabtaour          #+#    #+#             */
-/*   Updated: 2021/11/25 14:45:28 by yabtaour         ###   ########.fr       */
+/*   Created: 2021/11/19 18:05:39 by yabtaour          #+#    #+#             */
+/*   Updated: 2021/11/25 14:42:12 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
+#include "so_long.h"
 
-int	ft_putstr(char *str)
+int	ft_putchar(char c)
 {
-	int	i;
-	int	len;
-
-	i = 0;
-	len = 0;
-	if (str == NULL)
-		len += ft_putstr("(null)");
-	if (str)
-	{
-		while (str[i] != '\0')
-		{	
-			len += ft_putchar(str[i]);
-			i++;
-		}
-	}
-	return (len);
+	write (1, &c, 1);
+	return (1);
 }

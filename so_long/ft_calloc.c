@@ -9,7 +9,7 @@
 /*   Updated: 2022/02/25 20:13:01 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "so_long.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {
@@ -44,7 +44,7 @@ char	*ft_substr(char *s, int start, size_t len)
 		return (NULL);
 	ptr = (char *)malloc((len + 1) * sizeof(char));
 	if (!ptr)
-		return (NULL);
+		exit (1);
 	if (start <= ft_strlen(s))
 	{
 		while (start < end && s[start] != '\0')
@@ -68,6 +68,6 @@ void	*ft_calloc(int count, int size)
 	if (ptr != NULL)
 		ft_bzero(ptr, sizee);
 	else
-		return (NULL);
+		exit(1);
 	return (ptr);
 }

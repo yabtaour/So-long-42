@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabtaour <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 11:16:10 by yabtaour          #+#    #+#             */
-/*   Updated: 2022/02/20 09:18:04 by yabtaour         ###   ########.fr       */
+/*   Created: 2021/11/19 18:18:18 by yabtaour          #+#    #+#             */
+/*   Updated: 2021/11/25 14:43:20 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "so_long.h"
 
-# include <stdlib.h>
-# include <fcntl.h>
-# include <unistd.h>
-# include "../so_long.h"
+int	ft_putnbr(int number)
+{
+	int			len;
 
-# define BUFFER_SIZE 1
-
-char	*ft_strchr(char *str, int c);
-char	*ft_strjoin(char *s1, char *s2);
-char	*get_next_line(int fd);
-
-#endif
+	len = 0;
+	if (number == -2147483648)
+		len += ft_putstr("-2147483648");
+	else if (number >= 0 && number <= 9)
+		len += ft_putchar(number + 48);
+	else if (number > 9)
+	{
+		len += ft_putnbr(number / 10);
+		len += ft_putnbr(number % 10);
+	}
+	else if (number < 0)
+	{
+		len += ft_putchar('-');
+		len += ft_putnbr(-number);
+	}
+	return (len);
+}

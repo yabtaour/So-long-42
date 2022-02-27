@@ -22,6 +22,12 @@ int ft_close(t_w *w)
 		i++;
 	}
 	free(w->info.result);
+	mlx_destroy_image(w->mlx_p, w->p);
+	mlx_destroy_image(w->mlx_p, w->d);
+	mlx_destroy_image(w->mlx_p, w->c);
+	mlx_destroy_image(w->mlx_p, w->b);
+	mlx_destroy_image(w->mlx_p, w->w);
+	mlx_destroy_window(w->mlx_p, w->mlx_w);
 	ft_printf("game closed !!");
 	exit(0);
 	return (0);

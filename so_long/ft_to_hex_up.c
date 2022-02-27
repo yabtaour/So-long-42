@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_to_hex_low.c                                    :+:      :+:    :+:   */
+/*   ft_to_hex_up.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabtaour <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 16:59:35 by yabtaour          #+#    #+#             */
-/*   Updated: 2021/11/26 18:00:59 by yabtaour         ###   ########.fr       */
+/*   Created: 2021/11/19 13:47:24 by yabtaour          #+#    #+#             */
+/*   Updated: 2021/11/26 18:01:08 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
+#include "so_long.h"
 
-static int	ft_end_low(char	*str)
+static int	ft_end(char	*str)
 {
 	int	len;
 
@@ -22,7 +22,7 @@ static int	ft_end_low(char	*str)
 	return (len);
 }
 
-int	ft_to_hex_low(unsigned int number)
+int	ft_to_hex_up(unsigned int number)
 {
 	int			remainder;
 	int			i;
@@ -43,9 +43,9 @@ int	ft_to_hex_low(unsigned int number)
 		if (remainder < 10)
 			str[i] = remainder + 48;
 		else
-			str[i] = remainder + 87;
+			str[i] = remainder + 55;
 		i++;
 		number /= 16;
 	}
-	return (ft_end_low(str));
+	return (ft_end(str));
 }

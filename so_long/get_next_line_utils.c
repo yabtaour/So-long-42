@@ -9,7 +9,7 @@
 /*   Updated: 2022/02/20 09:11:17 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
+#include "so_long.h"
 
 char	*ft_strchr(char *str, int c)
 {
@@ -33,13 +33,15 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!s1)
 	{
 		s1 = (char *)malloc(1 * sizeof(char));
+		if (!s1)
+			exit(1);
 		s1[0] = '\0';
 	}
 	if (!s2)
 		return (NULL);
 	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!str)
-		return (NULL);
+		exit(1);
 	i = -1;
 	j = 0;
 	while (s1[++i])

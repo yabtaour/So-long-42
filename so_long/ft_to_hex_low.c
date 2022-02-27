@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_to_hex_pointer.c                                :+:      :+:    :+:   */
+/*   ft_to_hex_low.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabtaour <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 12:28:25 by yabtaour          #+#    #+#             */
-/*   Updated: 2021/11/26 18:02:23 by yabtaour         ###   ########.fr       */
+/*   Created: 2021/11/22 16:59:35 by yabtaour          #+#    #+#             */
+/*   Updated: 2021/11/26 18:00:59 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
+#include "so_long.h"
 
-static int	ft_end_pointer(char	*str)
+static int	ft_end_low(char	*str)
 {
 	int	len;
 
@@ -22,11 +22,11 @@ static int	ft_end_pointer(char	*str)
 	return (len);
 }
 
-int	ft_to_hex_pointer(unsigned long number)
+int	ft_to_hex_low(unsigned int number)
 {
-	unsigned long		remainder;
-	int					i;
-	char				*str;
+	int			remainder;
+	int			i;
+	char		*str;
 
 	i = 0;
 	str = (char *)ft_calloc(500, sizeof(char));
@@ -47,5 +47,5 @@ int	ft_to_hex_pointer(unsigned long number)
 		i++;
 		number /= 16;
 	}
-	return (ft_end_pointer(str));
+	return (ft_end_low(str));
 }

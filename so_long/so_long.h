@@ -12,14 +12,14 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "./get_next_line/get_next_line.h"
 # include <stdio.h>
 # include <unistd.h>
 # include "mlx.h"
 # include <stdlib.h>
 # include <fcntl.h>
-# include "./libft/libft.h"
-# include "./ft_printf/ft_printf.h"
+# include <stdarg.h>
+
+# define BUFFER_SIZE 1
 
 typedef struct s_map{
 	int	p_num;
@@ -72,5 +72,22 @@ int		ft_window(t_w w);
 void	ft_change_position_r_l(int i, int j, t_w *w);
 void	ft_change_position_u_d(int i, int j, t_w *w);
 int		ft_close(t_w *w);
+void	*ft_calloc(int count, int size);
+char	**ft_split(char *s, char c);
+int		ft_strlen(char *str);
+char	*ft_substr(char *s, int start, size_t len);
+char	*ft_strchr(char *str, int c);
+char	*ft_strjoin(char *s1, char *s2);
+char	*get_next_line(int fd);
+int		ft_strlen(char	*str);
+char	*ft_strrev(char	*s);
+int		ft_putchar(char c);
+int		ft_putstr(char *str);
+int		ft_putnbr(int number);
+int		ft_putnbr_u(unsigned int number);
+int		ft_to_hex_up(unsigned int number);
+int		ft_to_hex_low(unsigned int number);
+int		ft_printf(const char *format, ...);
+int		ft_to_hex_pointer(unsigned long number);
 
 #endif

@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabtaour <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 18:18:18 by yabtaour          #+#    #+#             */
-/*   Updated: 2021/11/25 14:43:20 by yabtaour         ###   ########.fr       */
+/*   Created: 2021/11/19 18:07:00 by yabtaour          #+#    #+#             */
+/*   Updated: 2021/11/25 14:45:28 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
+#include "so_long.h"
 
-int	ft_putnbr(int number)
+int	ft_putstr(char *str)
 {
-	int			len;
+	int	i;
+	int	len;
 
+	i = 0;
 	len = 0;
-	if (number == -2147483648)
-		len += ft_putstr("-2147483648");
-	else if (number >= 0 && number <= 9)
-		len += ft_putchar(number + 48);
-	else if (number > 9)
+	if (str == NULL)
+		len += ft_putstr("(null)");
+	if (str)
 	{
-		len += ft_putnbr(number / 10);
-		len += ft_putnbr(number % 10);
-	}
-	else if (number < 0)
-	{
-		len += ft_putchar('-');
-		len += ft_putnbr(-number);
+		while (str[i] != '\0')
+		{	
+			len += ft_putchar(str[i]);
+			i++;
+		}
 	}
 	return (len);
 }

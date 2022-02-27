@@ -9,7 +9,7 @@
 /*   Updated: 2022/02/20 08:13:46 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "so_long.h"
 
 int	ft_strlen(char *str)
 {

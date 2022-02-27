@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_to_hex_up.c                                     :+:      :+:    :+:   */
+/*   ft_to_hex_pointer.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabtaour <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 13:47:24 by yabtaour          #+#    #+#             */
-/*   Updated: 2021/11/26 18:01:08 by yabtaour         ###   ########.fr       */
+/*   Created: 2021/11/26 12:28:25 by yabtaour          #+#    #+#             */
+/*   Updated: 2021/11/26 18:02:23 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
+#include "so_long.h"
 
-static int	ft_end(char	*str)
+static int	ft_end_pointer(char	*str)
 {
 	int	len;
 
@@ -22,11 +22,11 @@ static int	ft_end(char	*str)
 	return (len);
 }
 
-int	ft_to_hex_up(unsigned int number)
+int	ft_to_hex_pointer(unsigned long number)
 {
-	int			remainder;
-	int			i;
-	char		*str;
+	unsigned long		remainder;
+	int					i;
+	char				*str;
 
 	i = 0;
 	str = (char *)ft_calloc(500, sizeof(char));
@@ -43,9 +43,9 @@ int	ft_to_hex_up(unsigned int number)
 		if (remainder < 10)
 			str[i] = remainder + 48;
 		else
-			str[i] = remainder + 55;
+			str[i] = remainder + 87;
 		i++;
 		number /= 16;
 	}
-	return (ft_end(str));
+	return (ft_end_pointer(str));
 }

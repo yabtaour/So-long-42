@@ -9,7 +9,7 @@
 /*   Updated: 2022/02/25 20:14:32 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "so_long.h"
 
 static size_t	word_count(const char *s, char c)
 {

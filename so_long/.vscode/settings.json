@@ -1,6 +1,8 @@
 {
     "C_Cpp.errorSquiggles": "Disabled",
     "files.associations": {
-        "so_long.h": "c"
+        "so_long.h": "c",
+        "ft_printf.h": "c",
+        "get_next_line.h": "c"
     }
 }

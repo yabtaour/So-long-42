@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_punbre_u.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabtaour <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 18:05:39 by yabtaour          #+#    #+#             */
-/*   Updated: 2021/11/25 14:42:12 by yabtaour         ###   ########.fr       */
+/*   Created: 2021/11/20 15:39:21 by yabtaour          #+#    #+#             */
+/*   Updated: 2021/11/25 14:45:06 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
+#include "so_long.h"
 
-int	ft_putchar(char c)
+int	ft_putnbr_u(unsigned int number)
 {
-	write (1, &c, 1);
-	return (1);
+	int	len;
+
+	len = 0;
+	if (number <= 9 && number >= 0)
+		len += ft_putchar(number + 48);
+	else if (number > 9)
+	{
+		len += ft_putnbr_u(number / 10);
+		len += ft_putnbr_u(number % 10);
+	}
+	return (len);
 }

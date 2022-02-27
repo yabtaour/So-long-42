@@ -9,7 +9,7 @@
 /*   Updated: 2021/12/07 20:10:14 by yabtaour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
+#include "so_long.h"
 
 char	*ft_read(int fd, char *str)
 {
@@ -18,7 +18,7 @@ char	*ft_read(int fd, char *str)
 
 	line = malloc(1 + BUFFER_SIZE);
 	if (!line)
-		return (NULL);
+		exit(0);
 	len = 1;
 	while (!ft_strchr(str, '\n') && len)
 	{
@@ -47,7 +47,7 @@ char	*ft_get_line(char *str)
 		i++;
 	line = malloc(i + 2);
 	if (!line)
-		return (NULL);
+		exit(0);
 	i = 0;
 	while (str[i] != '\0' && str[i] != '\n')
 	{
@@ -78,7 +78,7 @@ char	*ft_get_rest(char *str)
 	len = ft_strlen(&str[i + 1]);
 	line = (char *)malloc(sizeof(char) * (len + 1));
 	if (!line)
-		return (NULL);
+		exit(0);
 	j = 0;
 	i++;
 	while (str[i] != '\0')
